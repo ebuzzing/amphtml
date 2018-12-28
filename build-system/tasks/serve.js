@@ -21,8 +21,9 @@ const gulp = require('gulp-help')(require('gulp'));
 const log = require('fancy-log');
 const nodemon = require('nodemon');
 const path = require('path');
+const ip = require('ip');
 
-const host = argv.host || 'localhost';
+const host = argv.host || ip.address();
 const port = argv.port || process.env.PORT || 8000;
 const useHttps = argv.https != undefined;
 const quiet = argv.quiet != undefined;
