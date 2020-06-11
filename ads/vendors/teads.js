@@ -99,7 +99,7 @@ export function teads(global, data) {
       .serve()
     }
 
-    loadScript(global, `//${QueryString.js || 'a.teads.tv/media/format/v3/teads-format.min.js'}`, ttag)
+    loadScript(global, `//${QueryString.js || 's8t.teads.tv/media/format/v3/teads-format.min.js'}`, ttag)
   } else if (data.tag) {
     validateData(data.tag, global._teads_amp.mandatory_tag_data);
     global._tta = data.tag.tta;
