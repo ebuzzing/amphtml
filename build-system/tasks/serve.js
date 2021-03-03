@@ -144,6 +144,10 @@ async function startServer(
   connect.server(options, started);
   await startedPromise;
 
+  /**
+   * @param {string} host
+   * @return {string}
+   */
   function makeUrl(host) {
     return `http${options.https ? 's' : ''}://${host}:${options.port}`;
   }
