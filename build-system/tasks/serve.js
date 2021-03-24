@@ -31,6 +31,7 @@ const {
 const {
   lazyBuildExtensions,
   lazyBuildJs,
+  lazyBuild3pVendor,
   preBuildRuntimeFiles,
   preBuildExtensions,
 } = require('../server/lazy-build');
@@ -101,6 +102,7 @@ function getMiddleware() {
   if (lazyBuild) {
     middleware.push(lazyBuildExtensions);
     middleware.push(lazyBuildJs);
+    middleware.push(lazyBuild3pVendor);
   }
   return middleware;
 }
