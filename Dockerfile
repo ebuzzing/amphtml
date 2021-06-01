@@ -1,16 +1,17 @@
-FROM node:12
+FROM node:14
+
+ARG VERSION
+ENV VERSION=${VERSION}
 
 MAINTAINER Format team <innov-format@teads.tv>
-
-RUN yarn global add gulp-cli
 
 ADD . /var/www
 WORKDIR /var/www
 
-RUN yarn
+RUN npm i
 
-RUN gulp build
+RUN node ./build-system/task-runner/install-amp-task-runner.js
 
 EXPOSE 8000
 
-CMD gulp serve --host=0.0.0.0
+CMD amp --config=prod --version_override "${VERSION}"
