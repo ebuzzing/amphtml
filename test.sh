@@ -24,7 +24,7 @@ chmod g+s .
 # currently the result is not pushed because it will trigger the same job, infinite ci loop
 git remote add upstream git@github.com:ampproject/amphtml.git || echo 'upstream already present'
 git fetch upstream
-git rebase upstream/master
+git rebase upstream/main
 
 git submodule init
 git submodule update

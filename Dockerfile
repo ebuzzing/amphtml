@@ -1,16 +1,14 @@
-FROM node:12
+FROM node:14
 
 MAINTAINER Format team <innov-format@teads.tv>
-
-RUN yarn global add gulp-cli
 
 ADD . /var/www
 WORKDIR /var/www
 
-RUN yarn
+RUN npm i gulp
+RUN amp build
 
-RUN gulp build
 
 EXPOSE 8000
 
-CMD gulp serve --host=0.0.0.0
+CMD amp serve
